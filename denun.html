@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoDenúncia - Home</title>
+    <link rel="stylesheet" href="css/denun.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="ph ph-leaf"></i>
+                <h1>EcoDenúncia</h1>
+            </div>
+            <div class="search-container">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="number" placeholder="Buscar por CEP">
+            </div>
+            <button class="btn btn-collect" onclick="window.location.href='pontos.html'">Ver Pontos de Coleta</button>
+            <button class="btn btn-report" onclick="window.location.href='denuncia.html'">Fazer Denúncia</button>
+        </header>
+        <main>
+            <h2>Denúncias Recentes</h2>
+            <div class="feed">
+                <div class="card">
+                    <div class="icon-circle red"><i class="ph ph-map-pin"></i></div>
+                    <div class="card-info"><strong>Rua Silva</strong><span>Lixo acumulado</span></div>
+                </div>
+                <div class="card">
+                    <div class="icon-circle orange"><i class="ph ph-map-pin"></i></div>
+                    <div class="card-info"><strong>Praça Central</strong><span>Entulho descartado</span></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

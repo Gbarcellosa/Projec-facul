@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos de Descarte</title>
+    <link rel="stylesheet" href="css/denun.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header-small">
+            <a href="denun.html" class="back-button"><i class="ph ph-arrow-left"></i></a>
+            <h1>Pontos de Descarte</h1>
+        </header>
+        <div class="map-view">
+            <div class="pin pin-1"><i class="ph ph-map-pin-fill"></i></div>
+            <div class="pin pin-2"><i class="ph ph-map-pin-fill"></i></div>
+            <div class="search-map"><i class="ph ph-magnifying-glass"></i><input type="number" placeholder="Buscar CEP"></div>
+        </div>
+        <main class="points-list">
+            <div class="point-item" onclick="window.location.href='detalhes.html'">
+                <div class="point-icon green"><i class="ph ph-recycle"></i></div>
+                <div class="point-info"><strong> Eco Ponto Central</strong><span>Reciclável</span></div>
+                <i class="ph ph-caret-right"></i>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
