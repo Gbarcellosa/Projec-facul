@@ -1,0 +1,192 @@
+/* Reset global — seletor * estava faltando */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app-container {
+  width: 375px;
+  height: 667px;
+  background: #f9fafb;
+  border-radius: 30px;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+header {
+  background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+  padding: 30px 20px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  color: white;
+}
+
+.header-small {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  color: white;
+  font-size: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.search-container,
+.search-map {
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #888;
+}
+
+.search-container input,
+.search-map input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.btn-collect { background: #22c55e; color: white; }
+.btn-report  { background: #ef4444; color: white; }
+.btn-submit  { background: #22c55e; color: white; margin-top: 20px; }
+
+main { padding: 20px; }
+
+h1 { font-size: 20px; }
+h2 { font-size: 18px; margin-bottom: 15px; color: #374151; }
+
+.card,
+.point-item {
+  background: white;
+  padding: 12px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.icon-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.red    { background: #fee2e2; color: #ef4444; }
+.orange { background: #ffedd5; color: #f97316; }
+
+.map-view {
+  height: 200px;
+  background: #ddd;
+  position: relative;
+}
+
+.pin   { position: absolute; font-size: 25px; }
+.pin-1 { top: 40px;  left: 50px;  color: red; }
+.pin-2 { top: 100px; left: 200px; color: green; }
+
+.photo-upload {
+  background: #eee;
+  border: 2px dashed #ccc;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.type-selector { display: flex; gap: 5px; margin: 10px 0; }
+
+.type-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 10px;
+  background: white;
+}
+
+.type-btn.active { background: #dcfce7; border-color: #22c55e; }
+
+.success-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.check-circle {
+  width: 70px;
+  height: 70px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  margin: 0 auto 20px;
+}
+
+.tip-box {
+  background: #f0fdf4;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #15803d;
+}
