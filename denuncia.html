@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Denúncia</title>
-    <link rel="stylesheet" href="css/denun.css">
+    <link rel="stylesheet" href="css/geral.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="js/foto.js" defer></script>
 </head>
+
 <body>
     <div class="app-container">
         <header class="header-small">
-            <a href="denun.html" class="back-button"><i class="ph ph-arrow-left"></i></a>
+            <a href="denun.html" class="back-button">
+                <i class="ph ph-arrow-left"></i>
+            </a>
             <h1>Nova Denúncia</h1>
         </header>
-        <main class="form-container">
-            <div class="photo-upload"><i class="ph ph-camera"></i><span>Adicionar Foto</span></div>
-            <div class="input-group">
-                
-                <label><i class="ph ph-map-pin"></i> Localização:</label>
-                <input type="text" placeholder="Rua das Flores, Centro">
+
+        <form id="form-denuncia" class="form-container">
+
+            <div class="media-section">
+                <div class="photo-upload">
+                    <i class="ph ph-camera"></i>
+                    <span>Adicionar Foto</span>
+                </div>
+                <div class="foto-acoes">
+                    <button type="button" id="btn-camera">Câmera</button>
+                    <button type="button" id="btn-galeria">Galeria</button>
+                </div>
+
+                <input type="file" id="input-foto" accept="image/*" hidden>
+
+                <div id="camera-container" style="display:none">
+                    <video id="video" autoplay playsinline></video>
+                    <button type="button" id="btn-tirar">Tirar Foto</button>
+                </div>
+
+                <div id="preview-container" style="display:none">
+                    <img id="preview-img" alt="Prévia da denúncia">
+                    <button type="button" id="btn-remover">Remover</button>
+                </div>
+
+                <canvas id="canvas" style="display:none"></canvas>
             </div>
-            <textarea placeholder="Descreva o problema..." rows="4"></textarea>
-            <p class="label-text">Tipo de Resíduo:</p>
-            <div class="type-selector">
-                <button class="type-btn">Comum</button>
-                <button class="type-btn active">Reciclável</button>
-                <button class="type-btn">Entulho</button>
+
+            <hr class="divider">
+            <div class="form-fields">
+                <div class="input-group">
+                    <label for="localizacao">
+                        <i class="ph ph-map-pin"></i> Localização:
+                    </label>
+                    <input type="text" id="localizacao" placeholder="Endereço ou ponto de referência" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" placeholder="Descreva o problema detalhadamente..." required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <p class="label-text">Tipo de Resíduo:</p>
+                    <div class="type-selector">
+                        <button type="button" class="type-btn active">Reciclável</button>
+                        <button type="button" class="type-btn">Comum</button>
+                        <button type="button" class="type-btn">Entulho</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="contato">Contato (opcional):</label>
+                    <input type="text" id="contato" placeholder="(00) 00000-0000">
+                </div>
             </div>
-            <div class="input-group">
-                <label>Contato (opcional)</label>
-                <input type="text" placeholder="Seu telefone ou e-mail">
-            </div>
-            <button class="btn btn-submit" onclick="window.location.href='sucesso.html'">ENVIAR DENÚNCIA</button>
-        </main>
+
+            <button type="submit" class="btn btn-submit">ENVIAR DENÚNCIA</button>
+        </form>
     </div>
 </body>
+
 </html>
