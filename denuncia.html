@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Denúncia</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/denuncia.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+<div class="app-container">
+
+    <header class="header-small">
+        <a href="denun.html" class="back-button">
+            <i class="ph ph-arrow-left"></i>
+        </a>
+        <h1>Nova Denúncia</h1>
+    </header>
+
+    <form id="form-denuncia" class="form-container">
+
+        <!-- SEÇÃO DE FOTO -->
+        <div class="media-section">
+
+            <!-- Estado padrão: botões de ação -->
+            <div id="foto-default">
+                <div class="photo-upload" id="photo-placeholder">
+                    <i class="ph ph-camera"></i>
+                    <span>Adicionar Foto</span>
+                </div>
+                <div class="foto-acoes">
+                    <button type="button" id="btn-camera">
+                        <i class="ph ph-camera"></i> Câmera
+                    </button>
+                    <button type="button" id="btn-galeria">
+                        <i class="ph ph-image"></i> Galeria
+                    </button>
+                </div>
+            </div>
+
+            <!-- Câmera (fica dentro do app) -->
+            <div id="camera-container" style="display:none">
+                <video id="video" autoplay playsinline></video>
+                <button type="button" id="btn-tirar">
+                    <i class="ph ph-aperture"></i> Tirar Foto
+                </button>
+                <button type="button" id="btn-cancelar-camera">
+                    Cancelar
+                </button>
+            </div>
+
+            <!-- Preview da foto tirada/selecionada -->
+            <div id="preview-container" style="display:none">
+                <img id="preview-img" alt="Prévia da denúncia">
+                <button type="button" id="btn-remover">
+                    <i class="ph ph-trash"></i> Remover foto
+                </button>
+            </div>
+
+            <input type="file" id="input-foto" accept="image/*" hidden>
+            <canvas id="canvas" style="display:none"></canvas>
+        </div>
+
+        <hr class="divider">
+
+        <!-- CAMPOS DO FORMULÁRIO -->
+        <div class="form-fields">
+
+            <div class="input-group">
+                <label for="localizacao">
+                    <i class="ph ph-map-pin"></i> Localização
+                </label>
+                <input type="text" id="localizacao"
+                    placeholder="Endereço ou ponto de referência" required>
+            </div>
+
+            <div class="input-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao"
+                    placeholder="Descreva o problema detalhadamente..." required></textarea>
+            </div>
+
+            <div class="input-group">
+                <p class="label-text">Tipo de Resíduo</p>
+                <div class="type-selector">
+                    <button type="button" class="type-btn active" data-tipo="Reciclável">
+                        ♻️ Reciclável
+                    </button>
+                    <button type="button" class="type-btn" data-tipo="Comum">
+                        🗑️ Comum
+                    </button>
+                    <button type="button" class="type-btn" data-tipo="Entulho">
+                        🧱 Entulho
+                    </button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="contato">Contato (opcional)</label>
+                <input type="text" id="contato" placeholder="(00) 00000-0000">
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-submit">
+            <i class="ph ph-paper-plane-tilt"></i> ENVIAR DENÚNCIA
+        </button>
+
+    </form>
+</div>
+
+<script src="script/foto.js" defer></script>
+<script src="script/denuncia.js" defer></script>
+</body>
+</html>

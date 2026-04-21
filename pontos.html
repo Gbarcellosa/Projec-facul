@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos de Descarte</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/ponto.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+<div class="app-container">
+
+    <header class="header-small">
+        <a href="denun.html" class="back-button">
+            <i class="ph ph-arrow-left"></i>
+        </a>
+        <h1>Pontos de Descarte</h1>
+    </header>
+
+    <!-- MAPA -->
+    <div class="map-view">
+        <div id="map-pins">
+            <!-- Os pins serão gerados pelo JS -->
+        </div>
+        <div class="search-map">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="number" id="cepInput" placeholder="Buscar por CEP...">
+            <button class="btn-buscar" onclick="buscarPorCep()">Buscar</button>
+        </div>
+    </div>
+
+    <!-- LISTA DE PONTOS -->
+    <main class="points-list" id="pointsList">
+        <!-- Preenchido pelo JavaScript -->
+        <div class="loading-state">
+            <p>Carregando pontos...</p>
+        </div>
+    </main>
+
+</div>
+
+<script src="script/ponto.js"></script>
+</body>
+</html>

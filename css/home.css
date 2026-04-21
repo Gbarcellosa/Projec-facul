@@ -1,0 +1,182 @@
+/* Header da home — maior que o header-small */
+.header-home {
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+    padding: 24px 20px 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logo-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.header-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Sobrescreve os botões do geral.css pra ficarem melhores na home */
+.header-home .btn-collect {
+    background: white;
+    color: #16a34a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 14px;
+}
+
+.header-home .btn-report {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 14px;
+}
+
+/* Main com scroll */
+.home-main {
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Cards de estatísticas */
+.stats-row {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 12px 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Cabeçalho da seção */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-header h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+/* Feed de denúncias */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Info dentro do card */
+.card-info {
+    flex: 1;
+}
+
+.card-info strong {
+    display: block;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.card-info span {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Badge de status */
+.badge-status {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.badge-pendente  { background: #fef9c3; color: #854d0e; }
+.badge-resolvida { background: #dcfce7; color: #15803d; }
+.badge-analise   { background: #dbeafe; color: #1d4ed8; }
+
+/* Tempo no card */
+.card-tempo {
+    font-size: 11px;
+    color: #d1d5db;
+    flex-shrink: 0;
+}
+
+/* Estado vazio */
+.empty-state {
+    text-align: center;
+    padding: 30px 20px;
+    color: #9ca3af;
+    font-size: 13px;
+    background: white;
+    border-radius: 14px;
+    line-height: 1.6;
+}
+
+.empty-state i { color: #d1d5db; }
