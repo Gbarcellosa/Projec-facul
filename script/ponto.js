@@ -1,158 +1,105 @@
-// script/ponto.js
+async function buscarPorCep() {
+    const cep = document.getElementById("cepInput").value.trim().replace("-", "");
 
-const PONTOS_FIXOS = [
-    {
-        id: 1,
-        nome: "Eco Ponto Central",
-        endereco: "Rua das Flores, 100",
-        cep: "01310-000",
-        tiposAceitos: "Reciclável, Eletrônico, Óleo",
-        horarioFuncionamento: "Seg-Sex 8h-17h"
-    },
-    {
-        id: 2,
-        nome: "Eco Ponto Norte",
-        endereco: "Av. Principal, 500",
-        cep: "02001-000",
-        tiposAceitos: "Reciclável, Entulho",
-        horarioFuncionamento: "Seg-Sab 7h-16h"
-    },
-    {
-        id: 3,
-        nome: "Ponto Verde Sul",
-        endereco: "Rua do Parque, 200",
-        cep: "04001-000",
-        tiposAceitos: "Reciclável, Vidro, Papel",
-        horarioFuncionamento: "Todos os dias 6h-20h"
-    }
-];
-
-const COR_PINS = ["verde", "azul", "laranja"];
-
-const POSICOES_PINS = [
-    { top: "35%", left: "30%" },
-    { top: "50%", left: "65%" },
-    { top: "20%", left: "70%" }
-];
-
-// --------------------------
-// INICIALIZA
-// --------------------------
-function carregarPontos() {
-    renderizarPontos(PONTOS_FIXOS, "Pontos disponíveis");
-    renderizarPins(PONTOS_FIXOS);
-}
-
-// --------------------------
-// BUSCA POR CEP
-// --------------------------
-function buscarPorCep() {
-    const cep = document.getElementById("cepInput").value.trim();
-
-    if (!cep || cep.length < 5) {
-        alert("Digite um CEP válido (mínimo 5 dígitos)");
+    if (!cep || cep.length < 8) {
+        alert("Digite um CEP válido com 8 dígitos");
         return;
     }
 
-    const prefixo = cep.replace("-", "").substring(0, 5);
-    const resultado = PONTOS_FIXOS.filter(p =>
-        p.cep.replace("-", "").startsWith(prefixo)
-    );
+    mostrarCarregando("Buscando endereço...");
 
-    if (resultado.length === 0) {
-        mostrarErro("Nenhum ponto encontrado para esse CEP.");
-        setTimeout(() => carregarPontos(), 2000);
-        return;
+    try {
+        // 1. CEP → endereço via ViaCEP
+        const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await res.json();
+
+        if (data.erro) {
+            mostrarErro("CEP não encontrado. Tente outro.");
+            return;
+        }
+
+        renderizarResultado(data);
+
+    } catch (error) {
+        mostrarErro("Erro ao buscar. Verifique sua conexão.");
     }
-
-    renderizarPontos(resultado, `Resultado para CEP ${cep}`);
-    renderizarPins(resultado);
 }
 
-// --------------------------
-// RENDERIZA LISTA
-// --------------------------
-function renderizarPontos(pontos, titulo) {
+function renderizarResultado(data) {
     const lista = document.getElementById("pointsList");
+    const cidade = `${data.localidade} - ${data.uf}`;
+    const endereco = `${data.logradouro || data.localidade}, ${data.localidade}, ${data.uf}`;
 
-    const itens = pontos.map((ponto, index) => {
-        const cor = COR_PINS[index % COR_PINS.length];
-        const icone = escolherIcone(ponto.tiposAceitos);
-        const cssIcone = cor === "verde" ? "green" : cor === "azul" ? "blue" : "orange";
-        const badgeClass = cor === "verde" ? "badge-green" : cor === "azul" ? "badge-blue" : "badge-orange";
+    // Links pro Maps com buscas diferentes
+    const linkReciclagem  = `https://www.google.com/maps/search/${encodeURIComponent("ponto de reciclagem perto de " + endereco)}`;
+    const linkEcoponto    = `https://www.google.com/maps/search/${encodeURIComponent("ecoponto perto de " + endereco)}`;
+    const linkDescarte    = `https://www.google.com/maps/search/${encodeURIComponent("descarte de lixo perto de " + endereco)}`;
+    const linkMais        = `https://www.google.com/maps/search/${encodeURIComponent("coleta seletiva perto de " + endereco)}`;
 
-        return `
-            <div class="point-item card" onclick="irParaDetalhes(${ponto.id})">
-                <div class="point-icon ${cssIcone}">
-                    <i class="ph ${icone}"></i>
-                </div>
-                <div class="point-info">
-                    <strong>${ponto.nome}</strong>
-                    <span>${ponto.endereco} · ${ponto.horarioFuncionamento}</span>
-                    <span class="point-badge ${badgeClass}">${ponto.tiposAceitos}</span>
-                </div>
-                <i class="ph ph-caret-right" style="color:#d1d5db; font-size:18px;"></i>
+    lista.innerHTML = `
+        <div class="endereco-card">
+            <i class="ph ph-map-pin" style="color:#16a34a; font-size:20px; flex-shrink:0;"></i>
+            <div>
+                <strong>${cidade}</strong>
+                <span>${data.logradouro || ""} ${data.bairro ? "— " + data.bairro : ""}</span>
             </div>
-        `;
-    }).join("");
-
-    lista.innerHTML = `<div class="section-title">${titulo}</div>${itens}`;
-}
-
-// --------------------------
-// RENDERIZA PINS NO MAPA
-// --------------------------
-function renderizarPins(pontos) {
-    const mapPins = document.getElementById("map-pins");
-
-    const pins = pontos.slice(0, 3).map((ponto, index) => {
-        const pos = POSICOES_PINS[index];
-        const cor = COR_PINS[index % COR_PINS.length];
-
-        return `
-            <div class="map-pin ${cor}"
-                 style="top:${pos.top}; left:${pos.left};"
-                 title="${ponto.nome}"
-                 onclick="irParaDetalhes(${ponto.id})">
-                <i class="ph ph-map-pin-fill"></i>
-            </div>
-        `;
-    }).join("");
-
-    mapPins.innerHTML = pins;
-}
-
-// --------------------------
-// NAVEGA PARA DETALHES
-// --------------------------
-function irParaDetalhes(id) {
-    const ponto = PONTOS_FIXOS.find(p => p.id === id);
-    localStorage.setItem("pontoSelecionado", JSON.stringify(ponto));
-    window.location.href = "detalhes.html";
-}
-
-// --------------------------
-// AUXILIARES
-// --------------------------
-function escolherIcone(tipos) {
-    if (!tipos) return "ph-recycle";
-    const t = tipos.toLowerCase();
-    if (t.includes("eletr")) return "ph-cpu";
-    if (t.includes("entulho")) return "ph-building";
-    if (t.includes("leo")) return "ph-drop";
-    return "ph-recycle";
-}
-
-function mostrarErro(mensagem) {
-    document.getElementById("pointsList").innerHTML = `
-        <div class="error-state">
-            <i class="ph ph-warning-circle" style="font-size:24px;display:block;margin-bottom:8px;"></i>
-            ${mensagem}
         </div>
+
+        <div class="section-title">Pontos próximos a ${cidade}</div>
+
+        <a href="${linkReciclagem}" target="_blank" class="point-item">
+            <div class="point-icon green">
+                <i class="ph ph-recycle"></i>
+            </div>
+            <div class="point-info">
+                <strong>Pontos de Reciclagem</strong>
+                <span>Plástico, Papel, Metal, Vidro</span>
+                <span class="point-badge badge-green">Reciclável</span>
+            </div>
+            <i class="ph ph-arrow-square-out" style="color:#d1d5db; font-size:16px;"></i>
+        </a>
+
+        <a href="${linkEcoponto}" target="_blank" class="point-item">
+            <div class="point-icon blue">
+                <i class="ph ph-buildings"></i>
+            </div>
+            <div class="point-info">
+                <strong>Ecopontos</strong>
+                <span>Entulho, Móveis, Eletrônicos</span>
+                <span class="point-badge badge-blue">Ecoponto</span>
+            </div>
+            <i class="ph ph-arrow-square-out" style="color:#d1d5db; font-size:16px;"></i>
+        </a>
+
+        <a href="${linkDescarte}" target="_blank" class="point-item">
+            <div class="point-icon orange">
+                <i class="ph ph-trash"></i>
+            </div>
+            <div class="point-info">
+                <strong>Locais de Descarte</strong>
+                <span>Lixo comum e especial</span>
+                <span class="point-badge badge-orange">Descarte</span>
+            </div>
+            <i class="ph ph-arrow-square-out" style="color:#d1d5db; font-size:16px;"></i>
+        </a>
+
+        <a href="${linkMais}" target="_blank" class="btn-mais-pontos">
+            <i class="ph ph-map-trifold"></i> Ver mais pontos no Maps
+        </a>
     `;
 }
 
-// --------------------------
-// RODA AO ABRIR A PÁGINA
-// --------------------------
-carregarPontos();
+function mostrarCarregando(msg) {
+    document.getElementById("pointsList").innerHTML = `
+        <div class="loading-state">${msg}</div>
+    `;
+}
+
+function mostrarErro(msg) {
+    document.getElementById("pointsList").innerHTML = `
+        <div class="error-state">
+            <i class="ph ph-warning-circle" style="font-size:24px; display:block; margin-bottom:8px;"></i>
+            ${msg}
+        </div>
+    `;
+}

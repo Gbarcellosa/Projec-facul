@@ -1,13 +1,23 @@
-/* css/ponto.css */
-
+/* Barra de busca */
 .search-map {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    margin-bottom: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    background: white;
     gap: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    flex-shrink: 0;
+}
+
+.search-map i { color: #9ca3af; }
+
+.search-map input {
+    flex: 1;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13px;
+    outline: none;
 }
 
 .btn-buscar {
@@ -15,36 +25,48 @@
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 6px 12px;
+    padding: 8px 14px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
 }
 
-.map-pin {
-    position: absolute;
-    font-size: 28px;
-    transform: translate(-50%, -100%);
-    cursor: pointer;
-    transition: transform 0.2s;
+/* Lista */
+.points-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
-.map-pin:hover { transform: translate(-50%, -100%) scale(1.2); }
-.map-pin.verde   { color: #16a34a; }
-.map-pin.azul    { color: #2563eb; }
-.map-pin.laranja { color: #ea580c; }
 
+/* Título de seção */
 .section-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
-.point-item { cursor: pointer; transition: box-shadow 0.15s; }
-.point-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+/* Card do ponto — funciona como link */
+a.point-item {
+    text-decoration: none;
+    color: inherit;
+    background: white;
+    padding: 12px 14px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.15s;
+}
+a.point-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
 .point-icon {
     width: 42px;
@@ -73,11 +95,44 @@
 .badge-blue   { background: #dbeafe; color: #1d4ed8; }
 .badge-orange { background: #ffedd5; color: #c2410c; }
 
+/* Card do endereço encontrado */
+.endereco-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.endereco-card strong { display: block; font-size: 14px; color: #111827; }
+.endereco-card span   { font-size: 12px; color: #6b7280; }
+
+/* Botão ver mais pontos */
+.btn-mais-pontos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: #16a34a;
+    color: white;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 4px;
+}
+.btn-mais-pontos:hover { opacity: 0.9; }
+
+/* Estados */
 .loading-state {
     text-align: center;
-    padding: 30px;
+    padding: 30px 20px;
     color: #9ca3af;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 .error-state {

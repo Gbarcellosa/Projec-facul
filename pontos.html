@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="css/geral.css">
     <link rel="stylesheet" href="css/ponto.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#16a34a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EcoDenúncia">
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js');
+    }
+</script>
 </head>
 <body>
 <div class="app-container">
@@ -18,28 +29,20 @@
         <h1>Pontos de Descarte</h1>
     </header>
 
-    <!-- MAPA -->
-    <div class="map-view">
-        <div id="map-pins">
-            <!-- Os pins serão gerados pelo JS -->
-        </div>
-        <div class="search-map">
-            <i class="ph ph-magnifying-glass"></i>
-            <input type="number" id="cepInput" placeholder="Buscar por CEP...">
-            <button class="btn-buscar" onclick="buscarPorCep()">Buscar</button>
-        </div>
+    <div class="search-map">
+        <i class="ph ph-magnifying-glass"></i>
+        <input type="text" id="cepInput" placeholder="Buscar por CEP...">
+        <button class="btn-buscar" onclick="buscarPorCep()">Buscar</button>
     </div>
 
-    <!-- LISTA DE PONTOS -->
     <main class="points-list" id="pointsList">
-        <!-- Preenchido pelo JavaScript -->
         <div class="loading-state">
-            <p>Carregando pontos...</p>
+            <i class="ph ph-map-pin" style="font-size:28px; display:block; margin-bottom:8px;"></i>
+            Digite um CEP para buscar pontos próximos.
         </div>
     </main>
 
 </div>
-
 <script src="script/ponto.js"></script>
 </body>
 </html>
