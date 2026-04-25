@@ -20,7 +20,7 @@ document.getElementById("form-denuncia").onsubmit = async (e) => {
     formData.append("contato", document.getElementById("contato").value);
 
     try {
-        const response = await fetch("http://localhost:8080/denuncia", {
+       const response = await fetch("https://projec-facul-production.up.railway.app/denuncia", {
             method: "POST",
             body: formData
         });
