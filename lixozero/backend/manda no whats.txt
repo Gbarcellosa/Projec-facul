@@ -1,0 +1,223 @@
+Como eu sou uma IA de texto, não consigo te enviar um arquivo `.zip` para download direto, mas preparei algo **melhor e mais organizado** para você:
+
+Abaixo estão todos os códigos atualizados e revisados. Basta você abrir o **Bloco de Notas**, colar cada bloco e salvar com o nome indicado. Quando você chegar em casa, coloque todos na mesma pasta e o seu app estará 100% funcional e navegável!
+
+---
+
+### 1. Salvar como: `index.html` (Home)
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoDenúncia - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="ph ph-leaf"></i>
+                <h1>EcoDenúncia</h1>
+            </div>
+            <div class="search-container">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar por CEP">
+            </div>
+            <button class="btn btn-collect" onclick="window.location.href='pontos.html'">Ver Pontos de Coleta</button>
+            <button class="btn btn-report" onclick="window.location.href='denuncia.html'">Fazer Denúncia</button>
+        </header>
+        <main>
+            <h2>Denúncias Recentes</h2>
+            <div class="feed">
+                <div class="card">
+                    <div class="icon-circle red"><i class="ph ph-map-pin"></i></div>
+                    <div class="card-info"><strong>Rua Silva</strong><span>Lixo acumulado</span></div>
+                </div>
+                <div class="card">
+                    <div class="icon-circle orange"><i class="ph ph-map-pin"></i></div>
+                    <div class="card-info"><strong>Praça Central</strong><span>Entulho descartado</span></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+```
+
+---
+
+### 2. Salvar como: `denuncia.html` (Formulário)
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Denúncia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header-small">
+            <a href="index.html" class="back-button"><i class="ph ph-arrow-left"></i></a>
+            <h1>Nova Denúncia</h1>
+        </header>
+        <main class="form-container">
+            <div class="photo-upload"><i class="ph ph-camera"></i><span>Adicionar Foto</span></div>
+            <div class="input-group">
+                <label><i class="ph ph-map-pin"></i> Localização:</label>
+                <input type="text" value="Rua das Flores, Centro" readonly>
+            </div>
+            <textarea placeholder="Descreva o problema..." rows="4"></textarea>
+            <p class="label-text">Tipo de Resíduo:</p>
+            <div class="type-selector">
+                <button class="type-btn">Comum</button>
+                <button class="type-btn active">Reciclável</button>
+                <button class="type-btn">Entulho</button>
+            </div>
+            <div class="input-group">
+                <label>Contato (opcional)</label>
+                <input type="text" placeholder="Seu telefone ou e-mail">
+            </div>
+            <button class="btn btn-submit" onclick="window.location.href='sucesso.html'">ENVIAR DENÚNCIA</button>
+        </main>
+    </div>
+</body>
+</html>
+```
+
+---
+
+### 3. Salvar como: `pontos.html` (Mapa)
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos de Descarte</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header-small">
+            <a href="index.html" class="back-button"><i class="ph ph-arrow-left"></i></a>
+            <h1>Pontos de Descarte</h1>
+        </header>
+        <div class="map-view">
+            <div class="pin pin-1"><i class="ph ph-map-pin-fill"></i></div>
+            <div class="pin pin-2"><i class="ph ph-map-pin-fill"></i></div>
+            <div class="search-map"><i class="ph ph-magnifying-glass"></i><input type="text" placeholder="Buscar CEP"></div>
+        </div>
+        <main class="points-list">
+            <div class="point-item" onclick="window.location.href='detalhes.html'">
+                <div class="point-icon green"><i class="ph ph-recycle"></i></div>
+                <div class="point-info"><strong>Eco Ponto Central</strong><span>Reciclável</span></div>
+                <i class="ph ph-caret-right"></i>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+```
+
+---
+
+### 4. Salvar como: `detalhes.html` (Informações)
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Ponto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header-small">
+            <a href="pontos.html" class="back-button"><i class="ph ph-arrow-left"></i></a>
+            <h1>Detalhes do Ponto</h1>
+        </header>
+        <main class="details-container">
+            <div class="details-header"><i class="ph ph-map-pin-line green-text"></i><h2>Eco Ponto Central</h2></div>
+            <div class="info-row"><i class="ph ph-map-pin"></i><span>Av. São Paulo, 123, Centro</span></div>
+            <div class="info-row"><i class="ph ph-clock"></i><span>Seg - Sex: 8h às 18h</span></div>
+            <button class="btn btn-collect" style="margin-top:20px">ABRIR NO MAPS</button>
+        </main>
+    </div>
+</body>
+</html>
+```
+
+---
+
+### 5. Salvar como: `sucesso.html` (Finalização)
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container success-screen">
+        <div class="success-content">
+            <div class="check-circle"><i class="ph ph-check"></i></div>
+            <h2>Denúncia Enviada!</h2>
+            <div class="tip-box"><strong>Dica:</strong> Descarte sempre seu lixo corretamente.</div>
+            <button class="btn btn-report" onclick="window.location.href='index.html'">Voltar ao Início</button>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+---
+
+### 6. Salvar como: `style.css` (O coração visual)
+```css
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #333; display: flex; justify-content: center; padding: 20px; }
+.app-container { width: 375px; height: 667px; background: #f9fafb; border-radius: 30px; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; }
+header { background: linear-gradient(180deg, #16a34a 0%, #15803d 100%); padding: 30px 20px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; text-align: center; color: white; }
+.header-small { padding: 20px; display: flex; align-items: center; justify-content: center; height: 80px; }
+.back-button { position: absolute; left: 20px; color: white; font-size: 24px; }
+.logo { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; }
+.search-container, .search-map { background: white; display: flex; align-items: center; padding: 10px; border-radius: 10px; margin-bottom: 15px; color: #888; }
+.search-container input, .search-map input { border: none; outline: none; margin-left: 10px; width: 100%; }
+.btn { width: 100%; padding: 12px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
+.btn-collect { background: #22c55e; color: white; }
+.btn-report { background: #ef4444; color: white; }
+.btn-submit { background: #22c55e; color: white; margin-top: 20px; }
+main { padding: 20px; }
+h1 { font-size: 20px; }
+h2 { font-size: 18px; margin-bottom: 15px; color: #374151; }
+.card, .point-item { background: white; padding: 12px; border-radius: 15px; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.icon-circle { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.red { background: #fee2e2; color: #ef4444; }
+.orange { background: #ffedd5; color: #f97316; }
+.map-view { height: 200px; background: #ddd; position: relative; }
+.pin { position: absolute; font-size: 25px; }
+.pin-1 { top: 40px; left: 50px; color: red; }
+.pin-2 { top: 100px; left: 200px; color: green; }
+.photo-upload { background: #eee; border: 2px dashed #ccc; height: 100px; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #666; margin-bottom: 20px; }
+textarea, input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 10px; margin-top: 5px; }
+.type-selector { display: flex; gap: 5px; margin: 10px 0; }
+.type-btn { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 10px; background: white; }
+.type-btn.active { background: #dcfce7; border-color: #22c55e; }
+.success-screen { display: flex; align-items: center; justify-content: center; text-align: center; }
+.check-circle { width: 70px; height: 70px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; margin: 0 auto 20px; }
+.tip-box { background: #f0fdf4; padding: 15px; border-radius: 10px; margin: 20px 0; font-size: 13px; color: #15803d; }
+```
+
+**Dica de Ouro:** Quando for salvar no Bloco de Notas, coloque o nome entre aspas (ex: `"index.html"`) para o Windows não colocar um `.txt` escondido no final! Bom trabalho no projeto!

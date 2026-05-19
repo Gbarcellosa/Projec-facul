@@ -1,0 +1,200 @@
+/* Formulário com scroll */
+.form-container {
+    padding: 16px 16px 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Seção de mídia */
+.media-section {
+    margin-bottom: 4px;
+}
+
+/* Placeholder da foto */
+.photo-upload {
+    height: 120px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 14px;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.photo-upload:hover { background: #e5e7eb; }
+.photo-upload i { font-size: 28px; color: #9ca3af; }
+
+/* Botões câmera e galeria */
+.foto-acoes {
+    display: flex;
+    gap: 10px;
+}
+.foto-acoes button {
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.15s;
+}
+.foto-acoes button:hover {
+    border-color: #16a34a;
+    color: #16a34a;
+    background: #f0fdf4;
+}
+
+/* ================================
+   CÂMERA — FICA DENTRO DO APP
+   (remove o position:fixed do geral.css)
+================================ */
+#camera-container {
+    position: relative !important; /* sobrescreve o fixed do geral.css */
+    width: 100% !important;
+    height: auto !important;
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    top: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+}
+
+#video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 200px !important;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+#btn-tirar {
+    padding: 10px 24px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#btn-cancelar-camera {
+    padding: 8px 20px;
+    background: transparent;
+    color: #d1d5db;
+    border: 1px solid #4b5563;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Preview da foto */
+#preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#preview-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid #dcfce7;
+}
+
+#btn-remover {
+    padding: 8px 18px;
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Divisor */
+.divider {
+    border: none;
+    border-top: 1px solid #f0f0f0;
+    margin: 8px 0;
+}
+
+/* Campos do formulário */
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label,
+.label-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-group textarea {
+    height: 80px;
+    resize: none;
+    margin-top: 0;
+}
+
+/* Seletor de tipo */
+.type-selector { margin: 0; }
+
+.type-btn {
+    font-size: 11px;
+    padding: 8px 4px;
+    border-radius: 10px;
+    transition: all 0.15s;
+}
+.type-btn.active {
+    background: #dcfce7;
+    border-color: #16a34a;
+    color: #15803d;
+    font-weight: 700;
+}
+
+/* Botão submit */
+.btn-submit {
+    margin-top: 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

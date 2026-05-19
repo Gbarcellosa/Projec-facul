@@ -189,6 +189,7 @@ input[type="text"] {
   margin: 20px 0;
   font-size: 13px;
   color: #15803d;
+<<<<<<< HEAD
 }
 /* CONTAINER DA CAMERA */
 #camera-container {
@@ -213,4 +214,6 @@ input[type="text"] {
   max-height: 60%;
   border-radius: 15px;
   object-fit: cover;
+=======
+>>>>>>> 0987910fa852be94000bd5e124a9afd08fe78cec
 }
