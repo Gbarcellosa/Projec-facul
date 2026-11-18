@@ -1,0 +1,30 @@
+# CODEOWNERS - Automatic review assignment
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners (review all changes)
+* @Gabriel
+
+# Backend Java - Spring Boot
+/src/main/java/ @Gabriel
+/src/test/java/ @Gabriel
+/pom.xml @Gabriel
+/mvnw @Gabriel
+/mvnw.cmd @Gabriel
+/.mvn/ @Gabriel
+
+# Frontend PWA
+/*.html @Gabriel
+/css/ @Gabriel
+/script/ @Gabriel
+/icons/ @Gabriel
+/manifest.json @Gabriel
+/service-worker.js @Gabriel
+
+# Infrastructure / DevOps
+/Dockerfile @Gabriel
+/docker-compose.yml @Gabriel
+/.github/ @Gabriel
+/.env.example @Gabriel
+
+# Documentation
+/README.md @Gabriel

@@ -1,0 +1,140 @@
+/* Estilos específicos da home (complementam geral.css) */
+
+/* Header da home — maior que o header-small */
+.header-home {
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+    padding: 24px 20px 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.header-home .logo {
+    margin-bottom: 4px;
+}
+
+.header-home .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+.header-home .logo h1 {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.header-home .logo-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+/* Sobrescreve os botões do geral.css pra ficarem melhores na home */
+.header-home .btn-collect {
+    background: white;
+    color: #16a34a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 10px;
+}
+
+.header-home .btn-report {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Main com scroll - já definido no geral.css, só ajustes */
+.home-main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Cards de estatísticas - já no geral.css, apenas ajustes finos */
+.stats-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 16px 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #16a34a;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+}
+
+/* Cabeçalho da seção */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.section-header h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+/* Feed de denúncias */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Info dentro do card - já no geral.css */
+
+/* Badge de status - já no geral.css */
+
+/* Tempo no card - já no geral.css */
+
+/* Estado vazio - já no geral.css */
