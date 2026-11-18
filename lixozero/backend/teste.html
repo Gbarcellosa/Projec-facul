@@ -1,0 +1,17 @@
+<input type="text" id="cep" placeholder="Digite o CEP">
+<button onclick="buscarCEP()">Buscar locais</button>
+<script>function buscarCEP() {
+  const cep = document.getElementById("cep").value;
+
+  // API gratuita de CEP
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then(res => res.json())
+    .then(data => {
+      const endereco = `${data.logradouro}, ${data.localidade}`;
+
+      const url = `https://www.google.com/maps/search/descarte+de+lixo+perto+de+${encodeURIComponent(endereco)}`;
+
+      window.open(url, "_blank");
+    })
+    .catch(() => alert("Erro ao buscar CEP"));
+}</script>

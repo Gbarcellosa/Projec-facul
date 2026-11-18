@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos de Descarte</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/ponto.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#16a34a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EcoDenúncia">
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js');
+    }
+</script>
+</head>
+<body>
+<div class="app-container">
+
+    <header class="header-small">
+        <a href="denun.html" class="back-button">
+            <i class="ph ph-arrow-left"></i>
+        </a>
+        <h1>Pontos de Descarte</h1>
+    </header>
+
+    <div class="search-map">
+        <i class="ph ph-magnifying-glass"></i>
+        <input type="text" id="cepInput" placeholder="Buscar por CEP...">
+        <button class="btn-buscar" onclick="buscarPorCep()">Buscar</button>
+    </div>
+
+    <main class="points-list" id="pointsList">
+        <div class="loading-state">
+            <i class="ph ph-map-pin" style="font-size:28px; display:block; margin-bottom:8px;"></i>
+            Digite um CEP para buscar pontos próximos.
+        </div>
+    </main>
+
+</div>
+<script src="script/ponto.js"></script>
+</body>
+</html>
